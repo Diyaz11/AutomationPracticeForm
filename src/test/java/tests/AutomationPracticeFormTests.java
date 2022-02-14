@@ -54,8 +54,8 @@ public class AutomationPracticeFormTests {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $$(".table-responsive").shouldHave(
                 texts(
-                        "Name Lastname",
-                        "test@test.com" //т.д
+                        "Mick Ivanov",
+                        "ivanov@company.com" //т.д
                 )
         );
 
