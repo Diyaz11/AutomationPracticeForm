@@ -6,10 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class AutomationPracticeFormTests {
@@ -49,5 +50,16 @@ public class AutomationPracticeFormTests {
         $("#city").scrollTo().click();
         $("#city").$(byText("Jaiselmer")).click();
         $("#submit").click();
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $$(".table-responsive").shouldHave(
+                texts(
+                        "Name Lastname",
+                        "test@test.com" //т.д
+                )
+        );
+
     }
+
+
 }
