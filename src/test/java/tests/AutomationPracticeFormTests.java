@@ -27,7 +27,7 @@ public class AutomationPracticeFormTests {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
 
-
+//Проверка ввода значений и клика кнопок
         $("#firstName").setValue("Mick");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("ivanov@company.com");
@@ -50,14 +50,21 @@ public class AutomationPracticeFormTests {
         $("#city").scrollTo().click();
         $("#city").$(byText("Jaiselmer")).click();
         $("#submit").click();
-
+//Добавил проверку после заполенения форм, что все значения есть в таблице
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $$(".table-responsive").shouldHave(
-                texts(
-                        "Mick Ivanov",
-                        "ivanov@company.com" //т.д
-                )
+        $(".table-responsive").shouldHave(
+                text("Mick Ivanov"),
+                text("ivanov@company.com"),
+                text("Male"),
+                text("8999555441"),
+                text("9 April,1990"),
+                text("Arts"),
+                text("Sports"),
+                text("test.jpg"),
+                text("some address"),
+                text("Rajasthan Jaiselmer")
         );
+        $("#closeLargeModal").click();
 
     }
 
